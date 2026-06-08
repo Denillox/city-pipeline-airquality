@@ -11,6 +11,8 @@ df = pd.DataFrame(measurements)
 print(df.head(2))
 print(df.columns)
 
+# Parse nested JSON objects with lambda functions, extracting the necessary columns
+
 df['datetime'] = df['period'].apply(lambda x: x.get('datetimeFrom').get('utc') if isinstance(x, dict) else None)
 df['datetime'] = pd.to_datetime(df['datetime'])
 df['parameter_clean'] = df['parameter'].apply(lambda x: x.get('name') if isinstance(x, dict) else None)
