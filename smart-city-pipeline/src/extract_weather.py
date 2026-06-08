@@ -3,7 +3,7 @@ import os
 import requests
 
 parameters = [1, 4, 3, 7]
-station = 71420 # Göteborg
+station = 71420 # Gothenburg
 
 for p in parameters:
     url = f"https://opendata-download-metobs.smhi.se/api/version/1.0/parameter/{p}/station/{station}/period/corrected-archive.json"
@@ -16,4 +16,4 @@ for p in parameters:
             data = res.json()
             json.dump(data, f)
     else:
-        print(f"Något gick fel för parameter {p}! Statuskod: {res.status_code}")
+        print(f"Something went wrong for parameter {p}! Status code: {res.status_code}")
