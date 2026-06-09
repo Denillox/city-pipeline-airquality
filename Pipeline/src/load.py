@@ -61,8 +61,8 @@ print("Dimension tables loaded successfully")
 # dim_date - Built from CSV timestamps
 ######################################
 
-df_quality = pd.read_csv('Air-quality-pipeline/data/processed/airquality_clean.csv')
-df_weather = pd.read_csv('Air-quality-pipeline/data/processed/weather_processed.csv')
+df_quality = pd.read_csv('Pipeline/data/processed/airquality_clean.csv')
+df_weather = pd.read_csv('Pipeline/data/processed/weather_processed.csv')
 
 # Cleaning up and aligning the datetime columns
 df_quality['datetime'] = pd.to_datetime(df_quality['datetime']).dt.tz_localize(None)
