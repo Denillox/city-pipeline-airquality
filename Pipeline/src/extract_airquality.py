@@ -12,13 +12,13 @@ headers = {"X-API-KEY": api_key}
 location_id = 2163295
 location_url = f"https://api.openaq.org/v3/locations/{location_id}"
 
-print(f"Hämtar aktuella sensorer för station {location_id}...")
+print(f"Fetching active sensors for station {location_id}...")
 loc_res = requests.get(location_url, headers=headers)
 
 if loc_res.status_code == 200:
     # Get the list with sensors from the API-answer
     sensors = loc_res.json().get("results", [{}])[0].get("sensors", [])
-    print(f"Hittade {len(sensors)} aktiva sensorer på stationen.")
+    print(f"Found {len(sensors)} active sensors at the station.")
     
     all_measurements = []
     
@@ -35,7 +35,7 @@ if loc_res.status_code == 200:
             sensor_data = meas_res.json().get("results", [])
             all_measurements.extend(sensor_data)
         else:
-            print(f"    [!] Kunde inte hämta data för sensor {sensor_id}. Status: {meas_res.status_code}")
+            print(f"Could not fetch data for sensor {sensor_id}. Status: {meas_res.status_code}")
         
         time.sleep(0.5)
 
@@ -46,8 +46,8 @@ if loc_res.status_code == 200:
     with open('data/raw/airquality_raw.json', 'w') as f:
         json.dump(output_data, f)
         
-    print(f"Totalt {len(all_measurements)} mätvärden från alla sensorer har sparats!")
+    print(f"Totally {len(all_measurements)} measurements from all sensors has been saved")
 
 else:
-    print(f"Kunde inte hämta station. Statuskod: {loc_res.status_code}")
+    print(f"Could not get the station. Status code: {loc_res.status_code}")
     print(loc_res.text)
