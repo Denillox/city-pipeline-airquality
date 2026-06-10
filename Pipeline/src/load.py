@@ -29,8 +29,8 @@ connection = pyodbc.connect(f"Driver={{ODBC Driver 18 for SQL Server}};"
 # dim_parameter values
 parameters = [
     (1, "temperature", "C"),
-    (2, "wind_direction", "degrees"),
-    (3, "wind_speed", "m/s"),
+    (2, "wind_speed", "m/s"),
+    (3, "wind_direction", "degrees"),
     (4, "precipitation", "mm"),
     (5, "no2", "µg/m³"),
     (6, "pm10", "µg/m³"),
