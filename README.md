@@ -62,8 +62,8 @@ Pipeline/
 ### Installation
 1. Clone the repository
 ```bash
-git clone https://github.com/Denillox/city-pipeline-airquality.git
-cd city-pipeline-airquality
+git clone https://github.com/Denillox/urban-air-quality-analytics.git
+cd urban-air-quality-analytics
 ```
 
 2. Create and activate a virtual environment
