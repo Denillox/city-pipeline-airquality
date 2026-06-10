@@ -80,6 +80,7 @@ dim_date['month'] = all_datetimes.dt.month
 dim_date['day'] = all_datetimes.dt.day
 dim_date['hour'] = all_datetimes.dt.hour
 dim_date['weekday'] = all_datetimes.dt.day_name()
+dim_date['weekday_number'] = all_datetimes.dt.dayofweek + 1
 
 engine = create_engine(f"mssql+pyodbc://{server}/{db}?driver=ODBC+Driver+18+for+SQL+Server&Trusted_Connection=yes&TrustServerCertificate=yes")
 dim_date.to_sql('dim_date', con=engine, if_exists='append', index=False)

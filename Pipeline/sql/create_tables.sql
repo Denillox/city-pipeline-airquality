@@ -25,7 +25,8 @@ CREATE TABLE dim_date (
     month INT,
     day INT,
     hour INT,
-    weekday NVARCHAR(15)
+    weekday NVARCHAR(15),
+    weekday_number INT
 );
 
 CREATE TABLE fact_measurements (
